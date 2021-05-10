@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <!--<img src='../../assets/back-dark.svg' />-->
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="title">{{ categorie.nom }}</h1>
+  <ion-row class="favorite-items">
+    <ion-col *ngFor="let article of listArticles" routerLink="/item-details/{{ article.id }}" size="6" class="ion-text-left padding-left0">
+     <img src="{{ article.photo }}"/>
+      <p>{{ article.prix }} €</p>
+      <h6>{{ article.libelle}}</h6>
+    </ion-col>
+   
+  </ion-row>
+</ion-content>
