@@ -18,40 +18,19 @@
   <h1 class="title">Checkout</h1>
 
   <div class="cart-items">
-    <ion-card mode="ios">
+    <ion-card *ngFor="let cartArticle of cart" mode="ios">
       <ion-card-content>
         <div class="item-img">
-          <img src="../../assets/cart/cart1.png" />
+          <img src="{{ cartArticle.photo}}" />
         </div>
 
         <div class="item-info">
-          <p>Women t-shirt</p>
-          <p>Lotto.LTD</p>
-          <p>$34.00</p>
+          <p>{{ cartArticle.libelle }}</p>
+          <p>{{ cartArticle.prix * cartArticle.quantite | currency:'EUR':true }}</p>
 
           <div class="qty-selector">
             <ion-button fill="clear">-</ion-button>
-            <ion-label>1</ion-label>
-            <ion-button fill="clear">+</ion-button>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card mode="ios">
-      <ion-card-content>
-        <div class="item-img">
-          <img src="../../assets/cart/cart2.png" />
-        </div>
-
-        <div class="item-info">
-          <p>Female t-shirt</p>
-          <p>Bata</p>
-          <p>$44.00</p>
-
-          <div class="qty-selector">
-            <ion-button fill="clear">-</ion-button>
-            <ion-label>1</ion-label>
+            <ion-label>{{ cartArticle.quantite }}</ion-label>
             <ion-button fill="clear">+</ion-button>
           </div>
         </div>
@@ -61,12 +40,10 @@
 
   <div class="address">
     <ion-item lines="none">
-      37/6 A, Moratuwa, Sri Lanka
+      {{ connectedUser?.adresse }}
       <ion-badge slot="end">&nbsp;</ion-badge>
     </ion-item>
   </div>
-
-  <hr>
 
   <div class="cart-total">
     <ion-item lines="none">

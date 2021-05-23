@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Animation, AnimationController } from '@ionic/angular';
 import { Article } from '../class/articles/article';
 import { ArticlesService } from '../services/articles/articles.service';
+import { CartService } from '../services/cart/cart.service';
 import { CategoriesService } from '../services/categories/categories.service';
+import { ToastService } from '../services/toast/toast.service';
 
 @Component({
   selector: 'app-item-details',
@@ -18,11 +20,14 @@ export class ItemDetailsPage implements OnInit {
   sub: any;
   currentArticle : Article;
   listPhotos : Array<string>;
+  errorMessage : string = "Une erreur est survenue et à empecher l'ajout de l'article au panier. Si le problème contacter nous à l'adresse : sav.miamovore@miamovre.fr";
   constructor(
-    private animatioCntrl: AnimationController,
+    private animationCtrl: AnimationController,
     private route: ActivatedRoute,
     private serviceA : ArticlesService,
-    private serviceC : CategoriesService,
+    private cartService : CartService,
+    private router : Router,
+    private toastService : ToastService
   ) { }
 
   async ngOnInit() {
@@ -37,12 +42,18 @@ export class ItemDetailsPage implements OnInit {
     }
   }
   
+  addToCart(article : Article ) {
+    console.log("Dans addToCart");
+    this.cartService.addToCart(article)
+      .then(result => {this.router.navigate(["home/my-cart"]); this.toastService.presentToast("Article ajouté avec succès !")})
+      .catch(error => this.toastService.presentToast(this.errorMessage));
+  }
 
   segmentChanged(e: any) {
     this.activeVariation = e.detail.value;
 
     if (this.activeVariation == 'color') {
-      this.animatioCntrl.create()
+      this.animationCtrl.create()
       .addElement(document.querySelector('.sizes'))
       .duration(500)
       .iterations(1)
@@ -50,7 +61,7 @@ export class ItemDetailsPage implements OnInit {
       .fromTo('opacity', '1', '0.2')
       .play();
 
-      this.animatioCntrl.create()
+      this.animationCtrl.create()
       .addElement(document.querySelector('.colors'))
       .duration(500)
       .iterations(1)
@@ -58,7 +69,7 @@ export class ItemDetailsPage implements OnInit {
       .fromTo('opacity', '0.2', '1')
       .play();
     } else {
-      this.animatioCntrl.create()
+      this.animationCtrl.create()
       .addElement(document.querySelector('.sizes'))
       .duration(500)
       .iterations(1)
@@ -66,7 +77,7 @@ export class ItemDetailsPage implements OnInit {
       .fromTo('opacity', '0.2', '1')
       .play();
 
-      this.animatioCntrl.create()
+      this.animationCtrl.create()
       .addElement(document.querySelector('.colors'))
       .duration(500)
       .iterations(1)
