@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CartModalPageModule } from './cart-modal/cart-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    
+    CartModalPageModule
   ],
   providers: [
     StatusBar,

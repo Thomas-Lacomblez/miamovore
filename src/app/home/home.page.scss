@@ -7,7 +7,7 @@ ion-menu-button {
 }
 
 .search {
-    margin-bottom: 20px;
+    margin-bottom: -7px;
 
     ion-item {
         border-radius: 10px;
@@ -20,7 +20,7 @@ ion-menu-button {
 
         ion-input {
             padding-left: 10px !important;
-            border-left: 1px solid #F4F4F4;
+            //border-left: 1px solid #F4F4F4;
         }
     }
 }

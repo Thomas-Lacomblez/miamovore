@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Client } from 'src/app/class/personnes/client';
-@Injectable({
-  providedIn: 'root'
-})
+import { environment } from 'src/environments/environment';
+
+@Injectable()
+
 export class ClientsService {
 
   constructor(private http: HttpClient) {}
@@ -16,7 +17,7 @@ export class ClientsService {
 
   getClientById(id) {
     return new Promise ((resolve, reject) => { 
-      let url = this.url + '/api/clients/' + id;
+      let url = environment.apiUrl + '/clients/' + id;
       this.readAPI(url)
         .subscribe((data) => {
         console.log(data);
@@ -29,7 +30,7 @@ export class ClientsService {
   getAllClient() : Promise<Array<Client>> {
     return new Promise ((resolve, reject) => {  
       let listClients : Array<Client> = new Array<Client>();
-      let url = this.url + '/api/clients';
+      let url = environment.apiUrl + '/clients';
       this.readAPI(url)
         .subscribe((data : Array<Client> ) => {
         console.log(data);

@@ -1,12 +1,18 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({
+	providedIn: 'root'
+  })
+
 export class Personne {
-    private id : Number;
-    private nom : String;
-    private prenom : String;
-    private adresse : String;
-    private telephone : String;
-    private email : String;
-    private ville : String;
-    private arrondissement : String;
+    public id : Number;
+    public nom : String;
+    public prenom : String;
+    public adresse : String;
+    public telephone : String;
+    public email : String;
+    public ville : String;
+    public arrondissement : String;
      
 
 	constructor( $nom: String, $prenom: String, $adresse: String, $telephone: String, $email: String, $ville: String, $arrondissement: String, $id?: Number) {
@@ -25,6 +31,7 @@ export class Personne {
      * @return {Number}
      */
 	public get $id(): Number {
+        console.log("id : " + this.id);
 		return this.id;
 	}
 

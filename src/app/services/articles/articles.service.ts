@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Article } from 'src/app/class/articles/article';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ArticlesService {
 
   getArticleById(id) : Promise<Article> {
     return new Promise ((resolve, reject) => { 
-      let url = this.url + '/api/articles/' + id;
+      let url = environment.apiUrl + '/articles/' + id;
       this.readAPI(url)
         .subscribe((data) => {
         console.log(data);
@@ -31,7 +32,7 @@ export class ArticlesService {
   getAllArticles() : Promise<Array<Article>> {
     return new Promise ((resolve, reject) => {  
       let listClients : Array<Article> = new Array<Article>();
-      let url = this.url + '/api/articles';
+      let url = environment.apiUrl + '/articles';
       this.readAPI(url)
         .subscribe((data : any ) => {
         console.log(data);
@@ -48,7 +49,7 @@ export class ArticlesService {
   getAllArticlesByCategorieId(id) : Promise<Array<Article>> {
     return new Promise ((resolve, reject) => {  
       let listClients : Array<Article> = new Array<Article>();
-      let url = this.url + '/api/articles/categorieId/' + id;
+      let url = environment.apiUrl + '/articles/categorieId/' + id;
       this.readAPI(url)
         .subscribe((data : any ) => {
         console.log(data);

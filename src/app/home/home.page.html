@@ -5,7 +5,9 @@
         <img src="../../assets/menu_bar.svg" />
       </ion-menu-button>
     </ion-buttons>
+    <ion-title size="small" >{{ connectedUser?.nom }} - {{ connectedUser?.prenom }}</ion-title>
     <ion-buttons slot="end">
+      
       <ion-button class="notification">
         <ion-icon name="notifications-outline" color="dark"></ion-icon>
         <span>&nbsp;</span>
@@ -14,9 +16,10 @@
         <ion-icon name="funnel-outline" color="dark"></ion-icon>
       </ion-button>
     </ion-buttons>
+  
   </ion-toolbar>
+  
 </ion-header>
-
 <ion-content>
   <div class="search ion-padding">
     <ion-item lines="none">
@@ -33,7 +36,7 @@
   <div class="category-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
       <ion-slide *ngFor="let category of categories">
-        <ion-col routerLink="/categorie-details/{{ category.id }}">
+        <ion-col routerLink="/home/categorie-details/{{ category.id }}">
           <h4>{{ category.nom }}</h4>
           <img src="{{ category.photo }}" />
         </ion-col>
@@ -66,7 +69,7 @@
   <div class="product-slider ion-padding-start">
     <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
       <ion-slide *ngFor="let product of bestSellProducts">
-        <ion-col class="ion-text-left" routerLink="/item-details" routerDirection="forward">
+        <ion-col class="ion-text-left" routerLink="/home/item-details" routerDirection="forward">
           <img src="{{ product.image }}" />
           <p>${{ product.price }}</p>
           <h6>{{ product.name }}</h6>

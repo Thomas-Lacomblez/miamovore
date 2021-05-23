@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categorie } from 'src/app/class/categories/categorie';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,14 @@ import { Categorie } from 'src/app/class/categories/categorie';
 export class CategoriesService {
 
   constructor(private http: HttpClient) { }
-
-  url : string = "http://localhost:5000";
-
+  
   readAPI(URL: string) {
     return this.http.get(URL);
   }
 
   getCategorieById(id) : Promise<Categorie> {      
     return new Promise ((resolve, reject) => { 
-      let url = this.url + '/api/categories/' + id;
+      let url = environment.apiUrl + '/categories/' + id;
       this.readAPI(url)
         .subscribe( (data) => {
           let client : Categorie = new Categorie( data['libelle'],data['photo'], data['nom'], data['description'], id);
@@ -29,7 +28,7 @@ export class CategoriesService {
   getAllCategories() : Promise<Array<Categorie>> {
     return new Promise ((resolve, reject) => {  
       let listClients : Array<Categorie> = new Array<Categorie>();
-      let url = this.url + '/api/categories/';
+      let url = environment.apiUrl + '/categories/';
       this.readAPI(url)
         .subscribe((data : Array<Categorie> ) => {
         console.log(data);

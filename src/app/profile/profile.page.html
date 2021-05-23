@@ -19,28 +19,28 @@
 
   <div class="profile-info">
     <ion-item>
-      <ion-label position="floating">Name</ion-label>
-      <ion-input value="Code Crafts"></ion-input>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input value="{{ connectedUser?.nom }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Address Lane</ion-label>
-      <ion-input value="37/6 A"></ion-input>
+      <ion-label position="floating">Addresse</ion-label>
+      <ion-input value="{{ connectedUser?.adresse }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">City</ion-label>
-      <ion-input value="Moratuwa"></ion-input>
+      <ion-label position="floating">Ville</ion-label>
+      <ion-input value="{{ connectedUser?.ville }}"></ion-input>
     </ion-item>
-    <ion-item>
+    <!--<ion-item>
       <ion-label position="floating">Gender</ion-label>
-      <ion-input value="Male"></ion-input>
+      <ion-input value="{{ connectedUser?.nom }}"></ion-input>
+    </ion-item>--> 
+    <ion-item>
+      <ion-label position="floating">Adresse email</ion-label>
+      <ion-input value="{{ connectedUser?.email }}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input value="info@codecrafts.net"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Phone Number</ion-label>
-      <ion-input value="+94 775 580 646"></ion-input>
+      <ion-label position="floating">Numéro de téléphone</ion-label>
+      <ion-input value="{{ connectedUser?.tel }}"></ion-input>
     </ion-item>
   </div>
 </ion-content>

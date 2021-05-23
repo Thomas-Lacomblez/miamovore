@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Client } from '../class/personnes/client';
+import { AuthService } from '../services/auth/auth.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  public connectedUser : Client;
+  constructor(
+    private authService : AuthService
+  ) { }
 
   ngOnInit() {
+
+    this.authService.userData$.subscribe((res :any) => {
+      this.connectedUser = res;
+    });
+
   }
 
 }

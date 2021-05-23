@@ -1,17 +1,20 @@
+import { Injectable } from "@angular/core";
+
+@Injectable()
 export class Article {
-    private id : Number;
-    private libelle : String;
-    private prix : Number;
-    private quantite : Number;
-    private articleDescription : String;
-    private etat : String;
-    private photo : String;
-    private categorieId : Number;
-    private clientId : Number;
-    private commercantId : Number;
+    private id : number;
+    private libelle : string;
+    private prix : number;
+    private quantite : number;
+    private articleDescription : string;
+    private etat : string;
+    private photo : string;
+    private categorieId : number;
+    private clientId : number;
+    private commercantId : number;
 
 
-	constructor($libelle: String, $prix: Number, $quantite: Number, $articleDescription: String, $etat: String, $photo: String, $categorieId: Number, $clientId: Number, $commercantId: Number, $id?: Number) {
+	constructor($libelle: string, $prix: number, $quantite: number, $articleDescription: string, $etat: string, $photo: string, $categorieId: number, $clientId: number, $commercantId: number, $id?: number) {
 		this.id = $id;
 		this.libelle = $libelle;
 		this.prix = $prix;
@@ -27,161 +30,161 @@ export class Article {
 
     /**
      * Getter $id
-     * @return {Number}
+     * @return {number}
      */
-	public get $id(): Number {
+	public get $id(): number {
 		return this.id;
 	}
 
     /**
      * Getter $libelle
-     * @return {String}
+     * @return {string}
      */
-	public get $libelle(): String {
+	public get $libelle(): string {
 		return this.libelle;
 	}
 
     /**
      * Getter $prix
-     * @return {Number}
+     * @return {number}
      */
-	public get $prix(): Number {
+	public get $prix(): number {
 		return this.prix;
 	}
 
     /**
      * Getter $quantite
-     * @return {Number}
+     * @return {number}
      */
-	public get $quantite(): Number {
+	public get $quantite(): number {
 		return this.quantite;
 	}
 
     /**
      * Getter $articleDescription
-     * @return {String}
+     * @return {string}
      */
-	public get $articleDescription(): String {
+	public get $articleDescription(): string {
 		return this.articleDescription;
 	}
 
     /**
      * Getter $etat
-     * @return {String}
+     * @return {string}
      */
-	public get $etat(): String {
+	public get $etat(): string {
 		return this.etat;
 	}
 
     /**
      * Getter $photo
-     * @return {String}
+     * @return {string}
      */
-	public get $photo(): String {
+	public get $photo(): string {
 		return this.photo;
 	}
 
     /**
      * Getter $categorieId
-     * @return {Number}
+     * @return {number}
      */
-	public get $categorieId(): Number {
+	public get $categorieId(): number {
 		return this.categorieId;
 	}
 
     /**
      * Getter $clientId
-     * @return {Number}
+     * @return {number}
      */
-	public get $clientId(): Number {
+	public get $clientId(): number {
 		return this.clientId;
 	}
 
     /**
      * Getter $commercantId
-     * @return {Number}
+     * @return {number}
      */
-	public get $commercantId(): Number {
+	public get $commercantId(): number {
 		return this.commercantId;
 	}
 
     /**
      * Setter $id
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $id(value: Number) {
+	public set $id(value: number) {
 		this.id = value;
 	}
 
     /**
      * Setter $libelle
-     * @param {String} value
+     * @param {string} value
      */
-	public set $libelle(value: String) {
+	public set $libelle(value: string) {
 		this.libelle = value;
 	}
 
     /**
      * Setter $prix
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $prix(value: Number) {
+	public set $prix(value: number) {
 		this.prix = value;
 	}
 
     /**
      * Setter $quantite
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $quantite(value: Number) {
+	public set $quantite(value: number) {
 		this.quantite = value;
 	}
 
     /**
      * Setter $articleDescription
-     * @param {String} value
+     * @param {string} value
      */
-	public set $articleDescription(value: String) {
+	public set $articleDescription(value: string) {
 		this.articleDescription = value;
 	}
 
     /**
      * Setter $etat
-     * @param {String} value
+     * @param {string} value
      */
-	public set $etat(value: String) {
+	public set $etat(value: string) {
 		this.etat = value;
 	}
 
     /**
      * Setter $photo
-     * @param {String} value
+     * @param {string} value
      */
-	public set $photo(value: String) {
+	public set $photo(value: string) {
 		this.photo = value;
 	}
 
     /**
      * Setter $categorieId
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $categorieId(value: Number) {
+	public set $categorieId(value: number) {
 		this.categorieId = value;
 	}
 
     /**
      * Setter $clientId
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $clientId(value: Number) {
+	public set $clientId(value: number) {
 		this.clientId = value;
 	}
 
     /**
      * Setter $commercantId
-     * @param {Number} value
+     * @param {number} value
      */
-	public set $commercantId(value: Number) {
+	public set $commercantId(value: number) {
 		this.commercantId = value;
 	}
 
